@@ -1,3 +1,21 @@
+import axios from 'axios';
+
+// Set the base URL for all API calls IF the env var is defined
+const baseURL = process.env.REACT_APP_API_URL;
+if (baseURL) {
+  axios.defaults.baseURL = baseURL;
+  console.log(`Axios baseURL configured to: ${baseURL}`); // Check this log
+} else {
+  // Fallback for local development (uses proxy defined in package.json)
+  console.log('REACT_APP_API_URL not set, using local proxy for API calls.');
+}
+
+// ... rest of index.js (ReactDOM.createRoot, etc.)
+
+
+
+
+
 // This line imports the Bootstrap CSS for styling
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css'; // <-- ADD THIS LINE
