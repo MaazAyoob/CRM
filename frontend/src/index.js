@@ -1,30 +1,26 @@
-import axios from 'axios';
+// --- ALL IMPORTS MUST BE AT THE TOP ---
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import axios from 'axios'; // Import axios here
+import 'bootstrap/dist/css/bootstrap.min.css'; // Bootstrap CSS
+import 'bootstrap-icons/font/bootstrap-icons.css'; // Bootstrap Icons CSS
+import 'react-big-calendar/lib/css/react-big-calendar.css'; // React Big Calendar CSS
+import './index.css'; // Your custom CSS (if any)
+import App from './App'; // Your main App component
+// ----------------------------------------
 
-// Set the base URL for all API calls IF the env var is defined
+// --- AXIOS CONFIGURATION (AFTER IMPORTS) ---
 const baseURL = process.env.REACT_APP_API_URL;
 if (baseURL) {
   axios.defaults.baseURL = baseURL;
-  console.log(`Axios baseURL configured to: ${baseURL}`); // Check this log
+  console.log(`Axios baseURL configured to: ${baseURL}`);
 } else {
   // Fallback for local development (uses proxy defined in package.json)
   console.log('REACT_APP_API_URL not set, using local proxy for API calls.');
 }
+// -------------------------------------------
 
-// ... rest of index.js (ReactDOM.createRoot, etc.)
-
-
-
-
-
-// This line imports the Bootstrap CSS for styling
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap-icons/font/bootstrap-icons.css'; // <-- ADD THIS LINE
-
-// These are your standard React imports (ONLY ONCE)
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
-
+// --- RENDER THE APP ---
 // Find the 'root' div in your index.html
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -34,3 +30,4 @@ root.render(
     <App />
   </React.StrictMode>
 );
+// --- END ---
